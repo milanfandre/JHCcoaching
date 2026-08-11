@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact &amp; Inquiry — JHC Coaching</title>
+<meta name="description" content="Reach out to coach Jennifer Harrison about triathlon and endurance coaching. Jen reads every inquiry herself and usually replies within a day. Chicagoland and remote worldwide.">
+<meta property="og:title" content="Contact &amp; Inquiry — JHC Coaching">
+<meta property="og:description" content="Reach out to coach Jennifer Harrison about triathlon and endurance coaching. Jen reads every inquiry herself and usually replies within a day.">
+<meta property="og:image" content="/img/hero-team.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#ED73A8">
+<link rel="icon" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<!-- ======================= NAV (identical on every page; set aria-current="page" on the active link) ======================= -->
+<header class="nav">
+  <div class="wrap navrow">
+    <a class="brand" href="/index.html" aria-label="JHC Coaching"><img class="brand-logo" src="/img/logo.png" alt="JHC Coaching" width="337" height="140"></a>
+    <nav class="navlinks" id="navlinks">
+      <a href="/about.html">About</a><a href="/coaching.html">Coaching</a><a href="/testimonials.html">Testimonials</a>
+      <a href="/videos.html">Videos</a><a href="/community.html">Community</a><a href="/races.html">Races</a><a href="/contact.html" aria-current="page">Contact</a>
+    </nav>
+    <div class="navtools">
+      <a class="btn primary" href="/contact.html#book">Book a Consult</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE CONTENT GOES HERE ============ -->
+
+<!-- ======================= PAGE HEADER ======================= -->
+<section class="pagehead">
+  <div class="wrap">
+    <div class="crumb reveal">Home / Contact</div>
+    <h1 class="reveal">Work with Jen</h1>
+    <p class="reveal">Jen reads every inquiry herself and usually replies within a day. It is a real conversation about whether she is the right fit for you, not a sales pitch.</p>
+  </div>
+</section>
+
+<!-- ======================= INQUIRY ======================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <!-- LEFT: form -->
+      <div class="body">
+        <!-- Formspree endpoint. Replace REPLACE_CONTACT_ID with the form ID from your Formspree dashboard. -->
+        <form id="inquiryForm" class="form reveal" action="https://formspree.io/f/mgawkkkl" method="POST">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+          <input type="hidden" name="_subject" value="New coaching inquiry — JHC website">
+          <div class="row2">
+            <div>
+              <label class="flabel" for="first">First name</label>
+              <input class="field" type="text" id="first" name="First name" placeholder="Jordan" autocomplete="given-name" required>
+            </div>
+            <div>
+              <label class="flabel" for="last">Last name</label>
+              <input class="field" type="text" id="last" name="Last name" placeholder="Rivera" autocomplete="family-name" required>
+            </div>
+          </div>
+          <div>
+            <label class="flabel" for="email">Email</label>
+            <input class="field" type="email" id="email" name="Email" placeholder="you@email.com" autocomplete="email" required>
+          </div>
+          <div class="row2">
+            <div>
+              <label class="flabel" for="sport">Primary sport or distance</label>
+              <input class="field" type="text" id="sport" name="Primary sport or distance" placeholder="Ironman 140.6">
+            </div>
+            <div>
+              <label class="flabel" for="level">Experience level</label>
+              <input class="field" type="text" id="level" name="Experience level" placeholder="First-timer, returning, competitive">
+            </div>
+          </div>
+          <div>
+            <label class="flabel" for="race">Goal race and date (optional)</label>
+            <input class="field" type="text" id="race" name="Goal race and date" placeholder="IRONMAN Wisconsin, Sep 2027">
+          </div>
+          <div>
+            <label class="flabel" for="goals">Tell Jen about your goals</label>
+            <textarea class="area" id="goals" name="Tell Jen about your goals" placeholder="Where you are now, where you want to be, and anything about your life that shapes your training."></textarea>
+          </div>
+          <div>
+            <button class="btn primary" type="submit">Send inquiry →</button>
+          </div>
+        </form>
+        <div class="reveal card" id="inquiryOk" hidden style="text-align:center;padding:28px;margin-top:8px">
+          <div style="font-size:28px;margin-bottom:6px">✅</div>
+          <div style="font-family:'Archivo';font-weight:900;text-transform:uppercase;font-size:18px;letter-spacing:-.02em">Thanks — your inquiry is on its way</div>
+          <p class="muted" style="margin:8px auto 0;max-width:44ch">Jen reads every inquiry herself and usually replies within a day.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT: contact card -->
+      <div class="card reveal">
+        <h3>Reach Jen directly</h3>
+        <p style="margin-top:14px"><a href="mailto:jhtriathlon@sbcglobal.net" class="k" style="font-weight:600">jhtriathlon@sbcglobal.net</a></p>
+        <p style="margin-top:14px">Chicagoland and remote worldwide</p>
+        <p style="margin-top:14px">Instagram · YouTube · Facebook</p>
+        <p style="margin-top:14px">Responds within about a day</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BOOK A CONSULT ======================= -->
+<section class="sec mist" id="book">
+  <div class="wrap">
+    <h2 class="reveal">Book a consult</h2>
+    <p class="sub reveal" style="margin-top:16px">Pick a time that works for you and talk it through with Jen directly.</p>
+    <div class="reveal" style="margin-top:32px">
+      <!-- Calendly inline embed. The inner placeholder is replaced by the live scheduler when widget.js loads. -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/jhctriathlon" style="min-width:320px;height:700px">
+        <div style="background:#fff;border:1px solid var(--line);border-radius:16px;height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-shadow:var(--shadow)">
+          <div>
+            <div style="font-family:'Archivo';font-weight:900;text-transform:uppercase;font-size:20px;letter-spacing:-.02em">Book a consult with Jen</div>
+            <p class="muted" style="margin:8px 0 18px">Jen's live scheduling calendar loads here.</p>
+            <a class="btn primary" href="https://calendly.com/jhctriathlon" target="_blank" rel="noopener">Open Jen's Calendly ↗</a>
+          </div>
+        </div>
+      </div>
+      <p class="muted" style="text-align:center;margin-top:16px">Prefer to book directly? <a class="k" href="https://calendly.com/jhctriathlon" target="_blank" rel="noopener" style="font-weight:700">Open Jen's Calendly ↗</a></p>
+    </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+</section>
+
+<!-- ======================= FOOTER (identical on every page) ======================= -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <img class="brand-logo" src="/img/logo.png" alt="JHC Coaching" width="337" height="140" style="height:56px;margin-bottom:14px">
+        <p style="color:var(--muted);font-size:14px;max-width:30ch">Jennifer Harrison · USA Triathlon Level 3 · Coaching since 1999 · Chicagoland &amp; remote worldwide.</p>
+      </div>
+      <div><div class="foothd">Coaching</div><a href="/about.html">About Jen</a><a href="/coaching.html">Services</a><a href="/testimonials.html">Testimonials</a><a href="/publications.html">Publications</a></div>
+      <div><div class="foothd">Community</div><a href="/videos.html">Video Resources</a><a href="/community.html">Team &amp; Community</a><a href="/gallery.html">Gallery</a><a href="/races.html">Races &amp; Events</a><a href="/blog.html">Notes / Blog</a></div>
+      <div><div class="foothd">Athletes</div><a href="/onboarding.html">Athlete Onboarding 🔒</a><a href="/sponsors.html">Sponsors &amp; Partners</a><a href="/contact.html">Contact / Inquiry</a></div>
+    </div>
+    <div class="legal">
+      <span>© 2026 JHC Coaching. All rights reserved.</span>
+      <span class="social"><a href="https://www.instagram.com/jhctriathlon/" target="_blank" rel="noopener" aria-label="JHC Coaching on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5.01-4.74.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7C3.21 8.5 3.2 8.85 3.2 12s.01 3.5.07 4.74c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 0 0-.68-1.06 2.85 2.85 0 0 0-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.5 4.01 15.15 4 12 4zm0 3.06A4.94 4.94 0 1 1 12 16.94 4.94 4.94 0 0 1 12 7.06zm0 1.8A3.14 3.14 0 1 0 12 15.14 3.14 3.14 0 0 0 12 8.86zm5.15-.75a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg></a><a href="https://www.facebook.com/groups/99005588990" target="_blank" rel="noopener" aria-label="JHC Coaching community on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.5-3.92 3.77-3.92 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.9h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg></a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js"></script>
+<!-- Inquiry form → Formspree (AJAX so the visitor stays on the page). -->
+<script>
+  (function(){
+    var f=document.getElementById('inquiryForm');if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var btn=f.querySelector('[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+      fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+        .then(function(r){
+          if(r.ok){f.hidden=true;var ok=document.getElementById('inquiryOk');ok.hidden=false;ok.classList.add('in');ok.scrollIntoView({behavior:'smooth',block:'center'});}
+          else{btn.disabled=false;btn.textContent='Send inquiry →';window.location.href='mailto:jhtriathlon@sbcglobal.net';}
+        })
+        .catch(function(){btn.disabled=false;btn.textContent='Send inquiry →';window.location.href='mailto:jhtriathlon@sbcglobal.net';});
+    });
+  })();
+</script>
+</body>
+</html>

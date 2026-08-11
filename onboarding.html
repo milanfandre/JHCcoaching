@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Athlete Onboarding — JHC Coaching</title>
+<meta name="description" content="A private hub for new JHC Coaching athletes: your welcome video, paperwork, and setup links in one place.">
+<meta property="og:title" content="Athlete Onboarding — JHC Coaching">
+<meta property="og:description" content="A private hub for new JHC athletes: welcome video, paperwork, and setup links.">
+<meta property="og:image" content="/img/hero-team.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#ED73A8">
+<link rel="icon" href="/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  .wv{padding:clamp(22px,3vw,34px)}
+  .wv-intro{font-size:14px;line-height:1.7;color:#413947;margin:0 0 20px}
+  .wv-clauses{display:grid;gap:14px}
+  .wv-c{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--cloud)}
+  .wv-c p{margin:0;font-size:14px;line-height:1.6}
+  .wv-init{display:flex;flex-direction:column;align-items:center;gap:4px;flex:none}
+  .wv-init span{font-family:"Archivo";font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .wv-init input{width:64px;height:48px;text-align:center;text-transform:uppercase;font-family:"Archivo";font-weight:800;font-size:18px;letter-spacing:.04em;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--plum)}
+  .wv-init input:focus{outline:none;border-color:var(--rose);box-shadow:0 0 0 3px var(--rose-tint)}
+  .wv-init input.err{border-color:var(--rose-deep);background:var(--rose-tint)}
+  .wv-sign{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+  .wv-field{display:flex;flex-direction:column}
+  .wv-field:first-child{grid-column:1/-1}
+  .wv-sigfont{font-family:"Hanken Grotesk";font-style:italic;font-size:20px}
+  .field.err{border-color:var(--rose-deep);background:var(--rose-tint)}
+  .wv-msg{color:var(--rose-deep);font-weight:600;font-size:14px;margin:16px 0 0;text-align:center}
+  @media(max-width:640px){.wv-sign{grid-template-columns:1fr}.wv-init input{width:56px}.wv-c{padding:14px;gap:12px}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap navrow">
+    <a class="brand" href="/index.html" aria-label="JHC Coaching"><img class="brand-logo" src="/img/logo.png" alt="JHC Coaching" width="337" height="140"></a>
+    <nav class="navlinks" id="navlinks">
+      <a href="/about.html">About</a><a href="/coaching.html">Coaching</a><a href="/testimonials.html">Testimonials</a>
+      <a href="/videos.html">Videos</a><a href="/community.html">Community</a><a href="/races.html">Races</a><a href="/contact.html">Contact</a>
+    </nav>
+    <div class="navtools">
+      <a class="btn primary" href="/contact.html#book">Book a Consult</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <div class="crumb">Home / Athlete Onboarding 🔒</div>
+    <h1 class="reveal">Athlete onboarding</h1>
+    <p class="reveal">A private hub for new JHC athletes. Your welcome video, your waiver, and your setup links in one place. This is where you get everything squared away before your first session, no more digging through email.</p>
+  </div>
+</section>
+
+<!-- password gate -->
+<section class="sec" id="gate">
+  <div class="wrap">
+    <div class="card reveal" style="max-width:460px;margin:0 auto;text-align:center">
+      <div style="font-size:32px;line-height:1;margin-bottom:10px">🔒</div>
+      <h3 style="margin:0 0 6px">For JHC athletes</h3>
+      <p class="muted" style="font-size:14px;margin:0 0 18px">Enter the password Jen shared with you when you signed on.</p>
+      <input class="field" id="gatepw" type="password" placeholder="Enter password" autocomplete="off">
+      <button class="btn primary" id="gatebtn" style="width:100%;margin-top:12px">Unlock my dashboard</button>
+      <div class="muted" id="gatemsg" style="font-size:13px;margin-top:12px">New athlete? Jen sends the password when you start.</div>
+    </div>
+  </div>
+</section>
+
+<!-- unlocked dashboard (hidden until unlocked) -->
+<section class="sec mist" id="portal" style="display:none">
+  <div class="wrap">
+
+    <!-- welcome + video -->
+    <div class="shead center">
+      <h2 class="reveal">Welcome to the team.</h2>
+      <p class="sub reveal" style="margin:14px auto 0">Watch Jen's welcome video, then work down the checklist in order. Take them one at a time and you'll be set up and ready to train.</p>
+    </div>
+    <div class="media reveal" style="max-width:820px;margin:32px auto 0">
+      <a class="vthumb" href="#" style="display:block"><img src="/img/video-1.jpg" alt="Jen's onboarding welcome video" loading="lazy"><span class="play"><i></i></span></a>
+      <div class="caption muted" style="text-align:center;margin-top:12px;font-size:14px">Onboarding welcome video — coming soon from Jen.</div>
+    </div>
+
+    <!-- checklist -->
+    <h2 class="reveal" style="margin:56px 0 6px">Your onboarding checklist</h2>
+    <p class="muted reveal" style="margin:0 0 24px">Start with your waiver. Everything else follows from there.</p>
+    <div class="grid" style="gap:14px">
+      <div class="card reveal" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;border-color:var(--rose);background:var(--rose-tint)">
+        <span class="tagpill" style="color:var(--rose-deep);margin:0">Step 1 · Required</span>
+        <div style="flex:1;min-width:220px"><h3 style="margin:0 0 4px;font-size:19px">Sign your waiver &amp; health form</h3><p class="muted" style="margin:0;font-size:14px">Complete this before your first session. Fill it out in the form below.</p></div>
+        <a class="btn primary" href="#waiver">Go to waiver ↓</a>
+      </div>
+      <div class="card reveal" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><span class="tagpill" style="margin:0">Step 2</span><div style="flex:1;min-width:220px"><h3 style="margin:0;font-size:18px">Complete your intake questionnaire</h3><p class="muted" style="margin:2px 0 0;font-size:14px">Tell Jen about your history, your goals, and your schedule.</p></div><span class="arrow" style="margin:0">Open ↗</span></div>
+      <div class="card reveal" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><span class="tagpill" style="margin:0">Step 3</span><div style="flex:1;min-width:220px"><h3 style="margin:0;font-size:18px">Set up TrainingPeaks</h3><p class="muted" style="margin:2px 0 0;font-size:14px">Connect your account so your plan and data sync to every device.</p></div><span class="arrow" style="margin:0">Open ↗</span></div>
+      <div class="card reveal" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><span class="tagpill" style="margin:0">Step 4</span><div style="flex:1;min-width:220px"><h3 style="margin:0;font-size:18px">Review your coaching agreement</h3><p class="muted" style="margin:2px 0 0;font-size:14px">The details of how coaching works, start to finish.</p></div><span class="arrow" style="margin:0">Open ↗</span></div>
+      <div class="card reveal" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><span class="tagpill" style="margin:0">Step 5</span><div style="flex:1;min-width:220px"><h3 style="margin:0;font-size:18px">Set up payment &amp; billing</h3><p class="muted" style="margin:2px 0 0;font-size:14px">Choose your plan and get billing squared away.</p></div><span class="arrow" style="margin:0">Open ↗</span></div>
+    </div>
+
+    <!-- waiver form -->
+    <div id="waiver" style="margin-top:56px">
+      <h2 class="reveal" style="margin-bottom:6px">Athlete waiver &amp; release</h2>
+      <p class="sub reveal" style="margin:0 0 22px">Read each statement, enter your initials to agree, then sign and submit at the bottom. Your completed waiver goes straight to Jen.</p>
+
+      <form id="wvform" class="reveal card wv" novalidate>
+        <p class="wv-intro">I acknowledge that training for and/or participating in a bicycle, running, swimming, triathlon, duathlon and Ultra event is an extreme test of a person's physical and mental limits and such training or participation poses potential risks of serious bodily injury, death, or property damage. With full understanding of the risks I am taking, <strong>I HEREBY ASSUME ALL THE RISKS OF TRAINING FOR AND PARTICIPATING IN SUCH EVENTS</strong> and agree to the following. Enter your initials in each box to agree.</p>
+
+        <div class="wv-clauses">
+          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 1"></label><p>Jennifer Harrison has been retained to assist me in the improvement of my fitness.</p></div>
+
+          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 2"></label><p>I hereby attest that I am in good health and my physical condition has been verified by a licensed medical doctor.</p></div>
+
+          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 3"></label><p>In consideration of being accepted as a fitness client by Jennifer Harrison I hereby take the following action for myself, my executors, administrators, heirs, next of kin, successors and assigns, or anyone else who might claim or sue on my behalf: (a) <strong>I WAIVE, RELEASE, AND DISCHARGE</strong> from any and all claims, costs, or liabilities for death, personal injury or damages of any kind, which arise out of or relate to my training for or participation in a bicycling, running, swimming, triathlon or duathlon event, THE FOLLOWING PERSONS OR ENTITIES, Jennifer Harrison, its Officers, Directors, employees, coaches, consultants, and agents of any of the above; (b) <strong>I AGREE NOT TO SUE</strong> any of the persons or entities mentioned above for any of the claims, costs or liabilities that I have waived, released or discharged herein; and (c) <strong>I INDEMNIFY, DEFEND, and HOLD HARMLESS</strong> the persons or entities mentioned above from any claims made or liabilities assessed against them as a result of my actions except those resulting from the willful acts or gross negligence of Jennifer Harrison.</p></div>
+
+          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 4"></label><p>I am solely responsible for my debits. I agree to pay collection fees, if my debits are 60 or more days overdue.</p></div>
+
+          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 5"></label><p>I agree to abide by the laws of the State of Illinois and to litigate any disputes between myself (the Client) and Jennifer Harrison within the legal jurisdiction of Illinois.</p></div>
+
+          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 6"></label><p>I AFFIRM THAT I AM EIGHTEEN (18) YEARS OF AGE OR OLDER, I HAVE READ THIS DOCUMENT AND UNDERSTAND ITS CONTENTS.</p></div>
+
+          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 7"></label><p>I agree to give Jennifer Harrison 30 days notice of cancellation of coaching services.</p></div>
+
+          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 8"></label><p>I understand that the workouts written by Jennifer Harrison are proprietary to client and coach.</p></div>
+
+          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 9"></label><p>I understand it is my responsibility to contact Jennifer Harrison Coaching at least once per week (via TrainingPeaks or email) to report on my progress.</p></div>
+        </div>
+
+        <div class="wv-sign">
+          <div class="wv-field"><label class="flabel" for="wvname">Printed name</label><input class="field" type="text" id="wvname" autocomplete="name" placeholder="Full legal name"></div>
+          <div class="wv-field"><label class="flabel" for="wvsig">Signature (type your full name)</label><input class="field wv-sigfont" type="text" id="wvsig" placeholder="Your signature"></div>
+          <div class="wv-field"><label class="flabel" for="wvdate">Date</label><input class="field" type="date" id="wvdate"></div>
+        </div>
+
+        <p class="wv-msg" id="wvmsg" hidden></p>
+        <button class="btn primary" type="submit" id="wvsubmit" style="width:100%;margin-top:6px">Submit waiver to Jen →</button>
+        <p class="muted" style="font-size:12px;text-align:center;margin:12px 0 0">By submitting, you confirm the initials above are yours and you agree to this waiver in full.</p>
+      </form>
+
+      <!-- confirmation (shown after submit) -->
+      <div class="reveal card" id="wvdone" hidden style="text-align:center;padding:34px">
+        <div style="font-size:30px;margin-bottom:8px">✅</div>
+        <div style="font-family:'Archivo';font-weight:900;text-transform:uppercase;font-size:20px;letter-spacing:-.02em" id="wvdonehd">Waiver submitted</div>
+        <p class="muted" style="margin:10px auto 16px;max-width:52ch" id="wvdonemsg">Your signed waiver has been sent to Jen at <a class="k" href="mailto:jhtriathlon@sbcglobal.net" style="font-weight:700">jhtriathlon@sbcglobal.net</a>. Keep a copy for your records below.</p>
+        <textarea id="wvcopy" readonly style="width:100%;min-height:180px;font-family:inherit;font-size:13px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--cloud);color:var(--plum)"></textarea>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px">
+          <button class="btn ghost" type="button" id="wvcopybtn">Copy my copy</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap center">
+    <p class="muted">Something not working? <a href="/contact.html" style="color:var(--rose);font-weight:700">Contact Jen</a> and she'll sort it out.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <img class="brand-logo" src="/img/logo.png" alt="JHC Coaching" width="337" height="140" style="height:56px;margin-bottom:14px">
+        <p style="color:var(--muted);font-size:14px;max-width:30ch">Jennifer Harrison · USA Triathlon Level 3 · Coaching since 1999 · Chicagoland &amp; remote worldwide.</p>
+      </div>
+      <div><div class="foothd">Coaching</div><a href="/about.html">About Jen</a><a href="/coaching.html">Services</a><a href="/testimonials.html">Testimonials</a><a href="/publications.html">Publications</a></div>
+      <div><div class="foothd">Community</div><a href="/videos.html">Video Resources</a><a href="/community.html">Team &amp; Community</a><a href="/gallery.html">Gallery</a><a href="/races.html">Races &amp; Events</a><a href="/blog.html">Notes / Blog</a></div>
+      <div><div class="foothd">Athletes</div><a href="/onboarding.html">Athlete Onboarding 🔒</a><a href="/sponsors.html">Sponsors &amp; Partners</a><a href="/contact.html">Contact / Inquiry</a></div>
+    </div>
+    <div class="legal">
+      <span>© 2026 JHC Coaching. All rights reserved.</span>
+      <span class="social"><a href="https://www.instagram.com/jhctriathlon/" target="_blank" rel="noopener" aria-label="JHC Coaching on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5.01-4.74.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7C3.21 8.5 3.2 8.85 3.2 12s.01 3.5.07 4.74c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 0 0-.68-1.06 2.85 2.85 0 0 0-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.5 4.01 15.15 4 12 4zm0 3.06A4.94 4.94 0 1 1 12 16.94 4.94 4.94 0 0 1 12 7.06zm0 1.8A3.14 3.14 0 1 0 12 15.14 3.14 3.14 0 0 0 12 8.86zm5.15-.75a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg></a><a href="https://www.facebook.com/groups/99005588990" target="_blank" rel="noopener" aria-label="JHC Coaching community on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.5-3.92 3.77-3.92 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.9h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg></a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js"></script>
+<!-- Demo gate only. Real access protection will be configured at hosting. -->
+<script>
+  (function(){
+    var btn=document.getElementById('gatebtn'),pw=document.getElementById('gatepw'),portal=document.getElementById('portal'),msg=document.getElementById('gatemsg');
+    function tryUnlock(){
+      if((pw.value||'').trim().toLowerCase()==='jhc'){
+        var gate=document.getElementById('gate');
+        if(gate)gate.style.display='none';
+        portal.style.display='';
+        portal.scrollIntoView({behavior:'smooth'});
+        // reveal the now-visible elements
+        portal.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+      } else {
+        pw.style.borderColor='var(--rose)';
+        msg.textContent='That password is not right. Check with Jen.';
+      }
+    }
+    btn.addEventListener('click',tryUnlock);
+    pw.addEventListener('keydown',function(e){if(e.key==='Enter')tryUnlock();});
+  })();
+</script>
+<!-- Waiver submission → Formspree. Paste your Formspree WAIVER form ID below (replace REPLACE_WAIVER_ID). -->
+<script>
+  (function(){
+    var form=document.getElementById('wvform');
+    if(!form)return;
+    var FORMSPREE='https://formspree.io/f/mvkpaaad';
+    var TO='jhtriathlon@sbcglobal.net';
+    var dateEl=document.getElementById('wvdate');
+    try{dateEl.value=new Date().toISOString().slice(0,10);}catch(e){}
+    var LABELS=[
+      'Coach retained to assist with my fitness',
+      'In good health; condition verified by a licensed medical doctor',
+      'WAIVE / RELEASE / DISCHARGE, AGREE NOT TO SUE, INDEMNIFY / DEFEND / HOLD HARMLESS (full liability release)',
+      'Solely responsible for debits; pay collection fees if 60+ days overdue',
+      'Abide by Illinois law; litigate any disputes within Illinois',
+      'Affirm 18 years or older; have read and understand this document',
+      'Give 30 days notice to cancel coaching services',
+      'Workouts are proprietary to client and coach',
+      'Report progress at least weekly via TrainingPeaks or email'
+    ];
+    var inits=[].slice.call(form.querySelectorAll('[data-init]'));
+    var name=document.getElementById('wvname'),sig=document.getElementById('wvsig'),msg=document.getElementById('wvmsg');
+    function build(){
+      var L=['JHC COACHING — ATHLETE WAIVER & RELEASE','',
+        'Printed Name: '+name.value.trim(),
+        'Signature: '+sig.value.trim(),
+        'Date: '+dateEl.value,'',
+        'Initialed and agreed to each statement:'];
+      inits.forEach(function(el,i){L.push((i+1)+'. ['+el.value.trim().toUpperCase()+']  '+LABELS[i]);});
+      L.push('','By submitting this form, I confirm the initials above are mine and I agree to the full JHC Athlete Waiver & Release as presented on the onboarding page.');
+      return L.join('\n');
+    }
+    function payload(body){
+      var o={'Printed name':name.value.trim(),'Signature':sig.value.trim(),'Date':dateEl.value,
+        '_subject':'JHC Athlete Waiver & Release — '+name.value.trim()};
+      inits.forEach(function(el,i){o['Clause '+(i+1)+' initials']=el.value.trim().toUpperCase();});
+      o['Full waiver record']=body;
+      return o;
+    }
+    function showDone(sent,body){
+      var done=document.getElementById('wvdone');
+      document.getElementById('wvcopy').value=body;
+      if(!sent){
+        document.getElementById('wvdonehd').textContent='Almost there — email it to Jen';
+        document.getElementById('wvdonemsg').innerHTML='We could not submit automatically. Please copy the text below and email it to <a class="k" href="mailto:'+TO+'" style="font-weight:700">'+TO+'</a>.';
+      }
+      form.hidden=true;done.hidden=false;done.classList.add('in');done.scrollIntoView({behavior:'smooth'});
+    }
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var bad=false;
+      inits.forEach(function(el){var v=!el.value.trim();el.classList.toggle('err',v);if(v)bad=true;});
+      [name,sig].forEach(function(el){var v=!el.value.trim();el.classList.toggle('err',v);if(v)bad=true;});
+      var dv=!dateEl.value;dateEl.classList.toggle('err',dv);if(dv)bad=true;
+      if(bad){msg.hidden=false;msg.textContent='Please initial every statement and complete your name, signature, and date.';return;}
+      msg.hidden=true;
+      var body=build();
+      var btn=document.getElementById('wvsubmit');btn.disabled=true;btn.textContent='Submitting…';
+      fetch(FORMSPREE,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload(body))})
+        .then(function(r){showDone(r.ok,body);})
+        .catch(function(){showDone(false,body);});
+    });
+    document.getElementById('wvcopybtn').addEventListener('click',function(){
+      var ta=document.getElementById('wvcopy');ta.select();ta.setSelectionRange(0,99999);
+      try{document.execCommand('copy');this.textContent='Copied ✓';}catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>
