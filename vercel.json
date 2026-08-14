@@ -1,4 +1,8 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/landing-ironman", "destination": "/ironman-coaching", "permanent": true },
+    { "source": "/landing-ironman.html", "destination": "/ironman-coaching", "permanent": true }
+  ]
 }
