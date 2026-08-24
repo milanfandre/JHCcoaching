@@ -77,7 +77,14 @@
             </div>
             <div>
               <label class="flabel" for="level">Experience level</label>
-              <input class="field" type="text" id="level" name="Experience level" placeholder="First-timer, returning, competitive">
+              <select class="field" id="level" name="Experience level" required>
+                <option value="" selected disabled>Choose one…</option>
+                <option>First-time athlete</option>
+                <option>Returning after a break</option>
+                <option>Recreational (racing for fun)</option>
+                <option>Competitive (PRs and podiums)</option>
+                <option>Qualifier (Kona, Worlds, Boston)</option>
+              </select>
             </div>
           </div>
           <div>
@@ -117,17 +124,24 @@
   </div>
 </section>
 
-<!-- ======================= BOOK A CONSULT ======================= -->
+<!-- ======================= BOOK A CONSULT (unlocks after the inquiry form is sent) ======================= -->
 <section class="sec mist" id="book">
   <div class="wrap">
     <h2 class="reveal">Book a consult</h2>
     <p class="sub reveal" style="margin-top:16px">Pick a time that works for you and talk it through with Jen directly.</p>
-    <div class="reveal cal-wrap" style="margin-top:8px">
-      <!-- Calendly inline embed — contained in its own card so it can't overlap the footer. -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/jhctriathlon?hide_gdpr_banner=1" style="min-width:320px;height:1000px"></div>
+
+    <!-- locked state: shown until the inquiry form above is submitted -->
+    <div class="reveal card" id="calLock" style="text-align:center;padding:40px 28px;margin-top:8px">
+      <div style="font-size:30px;margin-bottom:8px">🔒</div>
+      <div style="font-family:'Archivo';font-weight:900;text-transform:uppercase;font-size:19px;letter-spacing:-.02em">Step 1: send your inquiry</div>
+      <p class="muted" style="margin:10px auto 18px;max-width:46ch">Fill out the short form above first — it takes about a minute and gives Jen the context to make your call worthwhile. The booking calendar opens right after you hit send.</p>
+      <a class="btn primary" href="#inquiryForm">Go to the form ↑</a>
     </div>
-    <p class="muted" style="text-align:center;margin-top:20px">Prefer to book directly? <a class="k" href="https://calendly.com/jhctriathlon" target="_blank" rel="noopener" style="font-weight:700">Open Jen's Calendly ↗</a></p>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+    <!-- unlocked state: Calendly loads only after the form is sent -->
+    <div class="cal-wrap" id="calWrap" hidden style="margin-top:8px">
+      <div class="calendly-inline-widget" id="calWidget" data-url="https://calendly.com/jhctriathlon?hide_gdpr_banner=1" style="min-width:320px;height:1000px"></div>
+    </div>
   </div>
 </section>
 
@@ -151,16 +165,56 @@
 </footer>
 
 <script src="/assets/site.js"></script>
-<!-- Inquiry form → Formspree (AJAX so the visitor stays on the page). -->
+<!-- Inquiry form → Formspree, with layered bot filtering (honeypot + speed check),
+     and the Calendly booking calendar gated behind a successful submission. -->
 <script>
   (function(){
     var f=document.getElementById('inquiryForm');if(!f)return;
+    var loadedAt=Date.now();          // speed check: humans can't finish this form in under a couple seconds
+    var MIN_FILL_MS=2500;
+    var calendlyLoaded=false;
+
+    function unlockCalendar(scroll){
+      var lock=document.getElementById('calLock'),wrap=document.getElementById('calWrap');
+      if(lock)lock.hidden=true;
+      if(wrap&&wrap.hidden){
+        wrap.hidden=false;wrap.classList.add('reveal','in');
+        if(!calendlyLoaded){
+          calendlyLoaded=true;
+          var s=document.createElement('script');
+          s.src='https://assets.calendly.com/assets/external/widget.js';s.async=true;
+          document.body.appendChild(s);
+        }
+      }
+      try{sessionStorage.setItem('jhc-consult-unlocked','1');}catch(e){}
+      if(scroll&&wrap)wrap.scrollIntoView({behavior:'smooth'});
+    }
+
+    // Returning visitor who already sent the form this session stays unlocked.
+    try{if(sessionStorage.getItem('jhc-consult-unlocked')==='1')unlockCalendar(false);}catch(e){}
+
+    function showSuccess(){
+      f.hidden=true;
+      var ok=document.getElementById('inquiryOk');
+      ok.hidden=false;ok.classList.add('in');
+      ok.querySelector('p.muted').innerHTML='Jen reads every inquiry herself and usually replies within a day. <b>Next:</b> pick a consult time below.';
+      unlockCalendar(true);
+    }
+
     f.addEventListener('submit',function(e){
       e.preventDefault();
+      // Layer 1 — honeypot: the hidden "website" field only bots fill.
+      // Layer 2 — speed check: submitted faster than any human could type it.
+      // Both get a convincing fake success and the submission is never sent,
+      // so bots can't tell they were filtered.
+      var trap=f.querySelector('[name=_gotcha]');
+      var tooFast=(Date.now()-loadedAt)<MIN_FILL_MS;
+      if((trap&&trap.value)||tooFast){showSuccess();return;}
+
       var btn=f.querySelector('[type=submit]');btn.disabled=true;btn.textContent='Sending…';
       fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
         .then(function(r){
-          if(r.ok){f.hidden=true;var ok=document.getElementById('inquiryOk');ok.hidden=false;ok.classList.add('in');ok.scrollIntoView({behavior:'smooth',block:'center'});}
+          if(r.ok){showSuccess();}
           else{btn.disabled=false;btn.textContent='Send inquiry →';window.location.href='mailto:jhtriathlon@sbcglobal.net';}
         })
         .catch(function(){btn.disabled=false;btn.textContent='Send inquiry →';window.location.href='mailto:jhtriathlon@sbcglobal.net';});
