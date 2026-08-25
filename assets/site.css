@@ -379,3 +379,15 @@ label.flabel{font-family:"Archivo";font-size:12px;font-weight:800;letter-spacing
 .g4{grid-template-columns:repeat(4,1fr)}
 @media(max-width:820px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+/* video password gate modal */
+.vgate{position:fixed;inset:0;z-index:200;display:none}
+.vgate.on{display:block}
+.vgate-back{position:absolute;inset:0;background:rgba(23,18,27,.66);backdrop-filter:blur(3px)}
+.vgate-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(420px,calc(100vw - 40px));background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 28px;text-align:center;box-shadow:0 40px 90px -30px rgba(0,0,0,.55)}
+.vgate-lock{font-size:30px;margin-bottom:8px}
+.vgate-card h3{margin:0 0 6px;font-family:"Archivo";font-weight:900;text-transform:uppercase;letter-spacing:-.02em;font-size:19px}
+.vgate-sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+.vgate-msg{color:var(--rose-deep);font-weight:600;font-size:13.5px;margin-top:10px}
+.vgate-row{display:flex;gap:10px;justify-content:center;margin-top:16px}
+.vgate-row .btn{flex:1}

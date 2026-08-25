@@ -41,3 +41,72 @@
     })();
   })();
 })();
+
+// ======================= VIDEO PASSWORD GATE =======================
+// Video thumbnails are public; playing one asks for the JHC password
+// (same as athlete onboarding). Correct password opens the unlisted
+// YouTube video and stays unlocked for the rest of the browser session.
+(function () {
+  var PW = 'jhctriathlon';
+  var KEY = 'jhc-videos-unlocked';
+  var links = [].slice.call(document.querySelectorAll('a.vthumb[href*="youtube.com/watch"]'));
+  if (!links.length) return;
+
+  function unlocked() { try { return sessionStorage.getItem(KEY) === '1'; } catch (e) { return false; } }
+
+  var modal = null, pendingUrl = '';
+  function buildModal() {
+    modal = document.createElement('div');
+    modal.className = 'vgate';
+    modal.innerHTML =
+      '<div class="vgate-back"></div>' +
+      '<div class="vgate-card" role="dialog" aria-modal="true" aria-label="Enter password to watch">' +
+        '<div class="vgate-lock">🔒</div>' +
+        '<h3>JHC videos are for the team</h3>' +
+        '<p class="vgate-sub">Enter the password Jen shares with her athletes and community to watch.</p>' +
+        '<input type="password" class="field" id="vgatepw" placeholder="Enter password" autocomplete="off">' +
+        '<div class="vgate-msg" id="vgatemsg" hidden>That password is not right. Check with Jen.</div>' +
+        '<div class="vgate-row">' +
+          '<button type="button" class="btn ghost" id="vgatecancel">Cancel</button>' +
+          '<button type="button" class="btn primary" id="vgatego">Watch video →</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(modal);
+    modal.querySelector('.vgate-back').addEventListener('click', close);
+    modal.querySelector('#vgatecancel').addEventListener('click', close);
+    modal.querySelector('#vgatego').addEventListener('click', tryGo);
+    modal.querySelector('#vgatepw').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') tryGo();
+      if (e.key === 'Escape') close();
+    });
+  }
+  function open(url) {
+    pendingUrl = url;
+    if (!modal) buildModal();
+    modal.classList.add('on');
+    var pw = modal.querySelector('#vgatepw');
+    pw.value = ''; pw.style.borderColor = '';
+    modal.querySelector('#vgatemsg').hidden = true;
+    setTimeout(function () { pw.focus(); }, 60);
+  }
+  function close() { if (modal) modal.classList.remove('on'); }
+  function tryGo() {
+    var pw = modal.querySelector('#vgatepw');
+    if ((pw.value || '').trim().toLowerCase() === PW) {
+      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+      close();
+      window.open(pendingUrl, '_blank', 'noopener');
+    } else {
+      pw.style.borderColor = 'var(--rose-deep)';
+      modal.querySelector('#vgatemsg').hidden = false;
+    }
+  }
+
+  links.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (unlocked()) return;              // already unlocked this session: normal click-through
+      e.preventDefault();
+      open(a.href);
+    });
+  });
+})();
