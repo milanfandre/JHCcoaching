@@ -134,8 +134,8 @@
         </div>
 
         <div class="wv-sign">
-          <div class="wv-field"><label class="flabel" for="wvname">Printed name</label><input class="field" type="text" id="wvname" autocomplete="name" placeholder="Full legal name"></div>
-          <div class="wv-field"><label class="flabel" for="wvsig">Signature (type your full name)</label><input class="field wv-sigfont" type="text" id="wvsig" placeholder="Your signature"></div>
+          <div class="wv-field"><label class="flabel" for="wvname">Printed name</label><input class="field" type="text" id="wvname" autocomplete="name" placeholder="Full legal name" maxlength="120"></div>
+          <div class="wv-field"><label class="flabel" for="wvsig">Signature (type your full name)</label><input class="field wv-sigfont" type="text" id="wvsig" placeholder="Your signature" maxlength="120"></div>
           <div class="wv-field"><label class="flabel" for="wvdate">Date</label><input class="field" type="date" id="wvdate"></div>
         </div>
 
@@ -188,8 +188,18 @@
 <script>
   (function(){
     var btn=document.getElementById('gatebtn'),pw=document.getElementById('gatepw'),portal=document.getElementById('portal'),msg=document.getElementById('gatemsg');
+    function sha256hex(s){
+      return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(d){
+        return Array.prototype.map.call(new Uint8Array(d),function(b){return b.toString(16).padStart(2,'0');}).join('');
+      });
+    }
+    // Password stored as a SHA-256 hash so it never appears in page source.
+    var PW_HASH='b42ae38374973a3d583f05d8b75dae7c4ef04aa646670601862b821c319d7452';
     function tryUnlock(){
-      if((pw.value||'').trim().toLowerCase()==='jhctriathlon'){
+      sha256hex((pw.value||'').trim().toLowerCase()).then(function(h){ unlockWith(h); });
+    }
+    function unlockWith(h){
+      if(h===PW_HASH){
         var gate=document.getElementById('gate');
         if(gate)gate.style.display='none';
         portal.style.display='';

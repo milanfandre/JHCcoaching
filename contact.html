@@ -59,21 +59,21 @@
           <div class="row2">
             <div>
               <label class="flabel" for="first">First name</label>
-              <input class="field" type="text" id="first" name="First name" placeholder="Jordan" autocomplete="given-name" required>
+              <input class="field" type="text" id="first" name="First name" placeholder="Jordan" autocomplete="given-name" maxlength="100" required>
             </div>
             <div>
               <label class="flabel" for="last">Last name</label>
-              <input class="field" type="text" id="last" name="Last name" placeholder="Rivera" autocomplete="family-name" required>
+              <input class="field" type="text" id="last" name="Last name" placeholder="Rivera" autocomplete="family-name" maxlength="100" required>
             </div>
           </div>
           <div>
             <label class="flabel" for="email">Email</label>
-            <input class="field" type="email" id="email" name="Email" placeholder="you@email.com" autocomplete="email" required>
+            <input class="field" type="email" id="email" name="Email" placeholder="you@email.com" autocomplete="email" maxlength="254" required>
           </div>
           <div class="row2">
             <div>
               <label class="flabel" for="sport">Primary sport or distance</label>
-              <input class="field" type="text" id="sport" name="Primary sport or distance" placeholder="Ironman 140.6">
+              <input class="field" type="text" id="sport" name="Primary sport or distance" placeholder="Ironman 140.6" maxlength="150">
             </div>
             <div>
               <label class="flabel" for="level">Experience level</label>
@@ -89,11 +89,11 @@
           </div>
           <div>
             <label class="flabel" for="race">Goal race and date (optional)</label>
-            <input class="field" type="text" id="race" name="Goal race and date" placeholder="IRONMAN Wisconsin, Sep 2027">
+            <input class="field" type="text" id="race" name="Goal race and date" placeholder="IRONMAN Wisconsin, Sep 2027" maxlength="200">
           </div>
           <div>
             <label class="flabel" for="goals">Tell Jen about your goals</label>
-            <textarea class="area" id="goals" name="Tell Jen about your goals" placeholder="Where you are now, where you want to be, and anything about your life that shapes your training."></textarea>
+            <textarea class="area" id="goals" name="Tell Jen about your goals" maxlength="5000" placeholder="Where you are now, where you want to be, and anything about your life that shapes your training."></textarea>
           </div>
           <div>
             <button class="btn primary" type="submit">Send inquiry →</button>

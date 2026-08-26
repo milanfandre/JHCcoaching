@@ -47,8 +47,14 @@
 // (same as athlete onboarding). Correct password opens the unlisted
 // YouTube video and stays unlocked for the rest of the browser session.
 (function () {
-  var PW = 'jhctriathlon';
+  // Password is stored as a SHA-256 hash so it never appears in source.
+  var PW_HASH = 'b42ae38374973a3d583f05d8b75dae7c4ef04aa646670601862b821c319d7452';
   var KEY = 'jhc-videos-unlocked';
+  function sha256hex(s){
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(function(d){
+      return Array.prototype.map.call(new Uint8Array(d), function(b){return b.toString(16).padStart(2,'0');}).join('');
+    });
+  }
   var links = [].slice.call(document.querySelectorAll('a.vthumb[href*="youtube.com/watch"]'));
   if (!links.length) return;
 
@@ -92,14 +98,16 @@
   function close() { if (modal) modal.classList.remove('on'); }
   function tryGo() {
     var pw = modal.querySelector('#vgatepw');
-    if ((pw.value || '').trim().toLowerCase() === PW) {
-      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
-      close();
-      window.open(pendingUrl, '_blank', 'noopener');
-    } else {
-      pw.style.borderColor = 'var(--rose-deep)';
-      modal.querySelector('#vgatemsg').hidden = false;
-    }
+    sha256hex((pw.value || '').trim().toLowerCase()).then(function (h) {
+      if (h === PW_HASH) {
+        try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+        close();
+        window.open(pendingUrl, '_blank', 'noopener');
+      } else {
+        pw.style.borderColor = 'var(--rose-deep)';
+        modal.querySelector('#vgatemsg').hidden = false;
+      }
+    });
   }
 
   links.forEach(function (a) {
