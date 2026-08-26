@@ -121,9 +121,10 @@
   .partner img{height:34px;width:auto;object-fit:contain;opacity:.72;transition:opacity .18s var(--ease),transform .18s var(--ease)}
   .partner img.raw{height:26px}
   .partner img.rudy{height:30px}
+  .partner img.cupcke{height:36px}
   .partner img.inv{filter:brightness(0);opacity:.66}
   .partner:hover img{opacity:1;transform:translateY(-2px)}
-  @media(min-width:900px){.partner img{height:40px}.partner img.raw{height:30px}.partner img.rudy{height:36px}}
+  @media(min-width:900px){.partner img{height:40px}.partner img.raw{height:30px}.partner img.rudy{height:36px}.partner img.cupcke{height:44px}}
   /* Calendly embed container — keeps the scheduler in its own card, never overlapping the footer */
   .cal-wrap{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
   .cal-wrap .calendly-inline-widget{display:block}
