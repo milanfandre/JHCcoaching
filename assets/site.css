@@ -338,7 +338,8 @@ label.flabel{font-family:"Archivo";font-size:12px;font-weight:800;letter-spacing
 
 /* logo wall (press / sponsors) */
 .logowall{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media(max-width:720px){.logowall{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.logowall{grid-template-columns:repeat(2,1fr)}.logobox{min-width:0}.logobox .nm{overflow-wrap:anywhere;font-size:15px}}
+@media(max-width:400px){.logowall{grid-template-columns:1fr}}
 .logobox{background:#fff;border:1px solid var(--line);border-radius:14px;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:18px;box-shadow:var(--shadow);transition:transform .18s var(--ease)}
 .logobox:hover{transform:translateY(-3px)}
 .logobox .nm{font-family:"Archivo";font-weight:900;text-transform:uppercase;font-size:clamp(15px,1.5vw,19px);letter-spacing:-.01em}
@@ -392,3 +393,24 @@ label.flabel{font-family:"Archivo";font-size:12px;font-weight:800;letter-spacing
 .vgate-msg{color:var(--rose-deep);font-weight:600;font-size:13.5px;margin-top:10px}
 .vgate-row{display:flex;gap:10px;justify-content:center;margin-top:16px}
 .vgate-row .btn{flex:1}
+
+/* ---------- mobile optimization ---------- */
+/* testimonial wall: 3 -> 2 -> 1 columns */
+.tmasonry{columns:3;column-gap:18px}
+@media(max-width:900px){.tmasonry{columns:2}}
+@media(max-width:600px){.tmasonry{columns:1}}
+/* race schedule: stacked label/value cards on phones instead of a sideways-scrolling table */
+@media(max-width:700px){
+  .wtable thead{display:none}
+  .wtable,.wtable tbody,.wtable tr{display:block;width:100%}
+  .wtable tr{border-bottom:10px solid var(--mist)}
+  .wtable tr:last-child{border-bottom:0}
+  .wtable td{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:11px 16px;border-bottom:1px dashed var(--line);text-align:right}
+  .wtable tr td:last-child{border-bottom:0}
+  .wtable td::before{content:attr(data-th);font-family:"Archivo";font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left}
+}
+/* about timeline: tighter year column on phones */
+@media(max-width:560px){
+  .tline{grid-template-columns:72px 1fr;gap:14px}
+  .tline .yr{font-size:18px}
+}
