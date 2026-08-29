@@ -444,3 +444,35 @@ label.flabel{font-family:"Archivo";font-size:12px;font-weight:800;letter-spacing
 /* long result-card titles: slightly smaller so words like CHAMPIONSHIP fit cleanly */
 .g4 .card h3{font-size:clamp(18px,1.6vw,24px)}
 .band .sub,.band .shead p{color:#D9CFDB}
+
+/* carousel arrows readable on the photo band */
+.band .tctrl button{border-color:#fff;color:#fff}
+.band .tctrl button:hover{background:#fff;color:var(--plum)}
+/* mobile CTA: heading + buttons only */
+@media(max-width:640px){.cta .sub{display:none}}
+/* mobile featured-in: clean 2x2 grid */
+@media(max-width:640px){
+  .press-row{display:grid;grid-template-columns:1fr 1fr;gap:30px 14px;justify-items:center;align-items:start}
+  .plogo{width:100%}
+}
+/* community photo collage (homepage) */
+.collage{position:relative;margin-top:10px}
+.ctile{position:relative;border-radius:20px;overflow:hidden;border:6px solid #fff;box-shadow:0 30px 60px -26px rgba(28,22,32,.55);margin:0}
+.ctile img{width:100%;height:100%;object-fit:cover;display:block}
+.ctile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(28,22,32,.55));pointer-events:none}
+.ctile span{position:absolute;left:16px;bottom:13px;z-index:2;color:#fff;font-family:"Archivo";font-weight:800;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+@media(min-width:900px){
+  .collage{height:660px}
+  .ctile{position:absolute}
+  .ctile.c1{left:0;top:0;width:46%;height:62%;transform:rotate(-2deg);z-index:1}
+  .ctile.c2{right:0;top:5%;width:45%;height:56%;transform:rotate(1.8deg);z-index:2}
+  .ctile.c3{left:17%;bottom:0;width:37%;height:47%;transform:rotate(1.2deg);z-index:3}
+  .ctile.c4{right:5%;bottom:2%;width:41%;height:44%;transform:rotate(-1.5deg);z-index:4}
+}
+@media(max-width:899px){
+  .collage{display:flex;flex-direction:column}
+  .ctile{width:90%;aspect-ratio:4/3}
+  .ctile:nth-child(odd){transform:rotate(-1.6deg);align-self:flex-start}
+  .ctile:nth-child(even){transform:rotate(1.6deg);align-self:flex-end}
+  .ctile+.ctile{margin-top:-26px}
+}
