@@ -414,3 +414,23 @@ label.flabel{font-family:"Archivo";font-size:12px;font-weight:800;letter-spacing
   .tline{grid-template-columns:72px 1fr;gap:14px}
   .tline .yr{font-size:18px}
 }
+
+/* new partner logo sizes */
+.partner img.qr{height:46px}
+.partner img.fuelin{height:26px}
+@media(min-width:900px){.partner img.qr{height:56px}.partner img.fuelin{height:32px}}
+/* athlete perks cards */
+.perk{display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.perk:hover{transform:translateY(-4px)}
+.perk-logo{height:44px;display:flex;align-items:center}
+.perk-logo img{max-height:36px;width:auto;max-width:160px;object-fit:contain}
+.perk p{margin:0;font-size:14px;color:var(--muted)}
+.perk-pill{font-family:"Archivo";font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--rose-tint);color:var(--rose-deep);padding:5px 11px;border-radius:99px}
+/* site-wide CTA photo: keep faces in frame */
+.cta .bg img{object-position:50% 25%}
+/* cards that sit on dark band/cta sections keep their own dark text (h3s were inheriting white) */
+.band .card,.cta .card,.band .tcard,.cta .tcard{color:var(--plum)}
+.band .card h3,.cta .card h3{text-shadow:none}
+/* long result-card titles: slightly smaller so words like CHAMPIONSHIP fit cleanly */
+.g4 .card h3{font-size:clamp(18px,1.6vw,24px)}
+.band .sub,.band .shead p{color:#D9CFDB}
