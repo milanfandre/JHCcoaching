@@ -124,7 +124,7 @@
   .partner img.cupcke{height:36px}
   .partner img.inv{filter:brightness(0);opacity:.66}
   .partner:hover img{opacity:1;transform:translateY(-2px)}
-  @media(min-width:900px){.partner img{height:40px}.partner img.raw{height:30px}.partner img.rudy{height:36px}.partner img.cupcke{height:44px}}
+  
   /* Calendly embed container — keeps the scheduler in its own card, never overlapping the footer */
   .cal-wrap{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
   .cal-wrap .calendly-inline-widget{display:block}
@@ -416,9 +416,19 @@ label.flabel{font-family:"Archivo";font-size:12px;font-weight:800;letter-spacing
 }
 
 /* new partner logo sizes */
-.partner img.qr{height:46px}
+.partner img.qr{height:44px}
 .partner img.fuelin{height:26px}
-@media(min-width:900px){.partner img.qr{height:56px}.partner img.fuelin{height:32px}}
+/* desktop: all seven partner logos on one line */
+@media(min-width:1000px){
+  .partner-row{flex-wrap:nowrap;gap:clamp(14px,2.2vw,38px)}
+  .partner{min-width:0}
+  .partner img{height:36px}
+  .partner img.raw{height:27px}
+  .partner img.rudy{height:32px}
+  .partner img.cupcke{height:38px}
+  .partner img.qr{height:50px}
+  .partner img.fuelin{height:29px}
+}
 /* athlete perks cards */
 .perk{display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
 .perk:hover{transform:translateY(-4px)}
