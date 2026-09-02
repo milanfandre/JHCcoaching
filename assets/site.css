@@ -480,3 +480,14 @@ label.flabel{font-family:"Archivo";font-size:12px;font-weight:800;letter-spacing
   .ctile:nth-child(even){transform:rotate(1.6deg);align-self:flex-end}
   .ctile+.ctile{margin-top:-26px}
 }
+
+/* ---- Coaching services: connect links + anchor chips ---- */
+.connect-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.connect{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 20px 9px 9px;font-family:"Archivo";font-weight:800;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--plum);box-shadow:var(--shadow);transition:transform .2s var(--ease),box-shadow .2s}
+.connect:hover{transform:translateY(-2px);box-shadow:0 20px 36px -20px rgba(28,22,32,.5)}
+.connect:active{transform:translateY(0)}
+.connect .social-ico{width:38px;height:38px;border-radius:10px}
+.connect .social-ico svg{width:19px;height:19px}
+a.cred.jump{color:var(--plum);transition:transform .18s var(--ease),border-color .18s}
+a.cred.jump:hover{transform:translateY(-2px);border-color:var(--rose)}
+#one-on-one,#camps,#clinics,#mentoring{scroll-margin-top:86px}
