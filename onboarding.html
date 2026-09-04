@@ -109,39 +109,12 @@
       <h2 class="reveal" style="margin-bottom:6px">Athlete waiver, release &amp; coaching agreement</h2>
       <p class="sub reveal" style="margin:0 0 22px">This one document is both your waiver and your coaching agreement: it covers health and risk, plus how coaching works, payment, cancellation, and check-ins. Read each statement, enter your initials to agree, then sign and submit at the bottom. Your completed form goes straight to Jen.</p>
 
-      <form id="wvform" class="reveal card wv" novalidate>
-        <p class="wv-intro">I acknowledge that training for and/or participating in a bicycle, running, swimming, triathlon, duathlon and Ultra event is an extreme test of a person's physical and mental limits and such training or participation poses potential risks of serious bodily injury, death, or property damage. With full understanding of the risks I am taking, <strong>I HEREBY ASSUME ALL THE RISKS OF TRAINING FOR AND PARTICIPATING IN SUCH EVENTS</strong> and agree to the following. Enter your initials in each box to agree.</p>
-
-        <div class="wv-clauses">
-          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 1"></label><p>Jennifer Harrison has been retained to assist me in the improvement of my fitness.</p></div>
-
-          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 2"></label><p>I hereby attest that I am in good health and my physical condition has been verified by a licensed medical doctor.</p></div>
-
-          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 3"></label><p>In consideration of being accepted as a fitness client by Jennifer Harrison I hereby take the following action for myself, my executors, administrators, heirs, next of kin, successors and assigns, or anyone else who might claim or sue on my behalf: (a) <strong>I WAIVE, RELEASE, AND DISCHARGE</strong> from any and all claims, costs, or liabilities for death, personal injury or damages of any kind, which arise out of or relate to my training for or participation in a bicycling, running, swimming, triathlon or duathlon event, THE FOLLOWING PERSONS OR ENTITIES, Jennifer Harrison, its Officers, Directors, employees, coaches, consultants, and agents of any of the above; (b) <strong>I AGREE NOT TO SUE</strong> any of the persons or entities mentioned above for any of the claims, costs or liabilities that I have waived, released or discharged herein; and (c) <strong>I INDEMNIFY, DEFEND, and HOLD HARMLESS</strong> the persons or entities mentioned above from any claims made or liabilities assessed against them as a result of my actions except those resulting from the willful acts or gross negligence of Jennifer Harrison.</p></div>
-
-          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 4"></label><p>I am solely responsible for my debits. I agree to pay collection fees, if my debits are 60 or more days overdue.</p></div>
-
-          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 5"></label><p>I agree to abide by the laws of the State of Illinois and to litigate any disputes between myself (the Client) and Jennifer Harrison within the legal jurisdiction of Illinois.</p></div>
-
-          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 6"></label><p>I AFFIRM THAT I AM EIGHTEEN (18) YEARS OF AGE OR OLDER, I HAVE READ THIS DOCUMENT AND UNDERSTAND ITS CONTENTS.</p></div>
-
-          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 7"></label><p>I agree to give Jennifer Harrison 30 days notice of cancellation of coaching services.</p></div>
-
-          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 8"></label><p>I understand that the workouts written by Jennifer Harrison are proprietary to client and coach.</p></div>
-
-          <div class="wv-c"><label class="wv-init"><span>Init</span><input type="text" maxlength="4" data-init aria-label="Initials for statement 9"></label><p>I understand it is my responsibility to contact Jennifer Harrison Coaching at least once per week (via Training Peaks or email) to report on my progress.</p></div>
-        </div>
-
-        <div class="wv-sign">
-          <div class="wv-field"><label class="flabel" for="wvname">Printed name</label><input class="field" type="text" id="wvname" autocomplete="name" placeholder="Full legal name" maxlength="120"></div>
-          <div class="wv-field"><label class="flabel" for="wvsig">Signature (type your full name)</label><input class="field wv-sigfont" type="text" id="wvsig" placeholder="Your signature" maxlength="120"></div>
-          <div class="wv-field"><label class="flabel" for="wvdate">Date</label><input class="field" type="date" id="wvdate"></div>
-        </div>
-
-        <p class="wv-msg" id="wvmsg" hidden></p>
-        <button class="btn primary" type="submit" id="wvsubmit" style="width:100%;margin-top:6px">Submit waiver to Jen →</button>
-        <p class="muted" style="font-size:12px;text-align:center;margin:12px 0 0">By submitting, you confirm the initials above are yours and you agree to this waiver in full.</p>
-      </form>
+      <div class="reveal card" style="padding:8px;overflow:hidden">
+        <iframe id="JotFormIFrame-262461688586372" title="Athlete waiver, release and coaching agreement"
+                src="https://form.jotform.com/262461688586372"
+                style="width:100%;min-width:100%;height:1200px;border:none;display:block"
+                scrolling="no" allow="geolocation; microphone; camera"></iframe>
+      </div>
 
       <!-- confirmation (shown after submit) -->
       <div class="reveal card" id="wvdone" hidden style="text-align:center;padding:34px">
@@ -214,73 +187,8 @@
     pw.addEventListener('keydown',function(e){if(e.key==='Enter')tryUnlock();});
   })();
 </script>
-<!-- Waiver submission → Formspree. Paste your Formspree WAIVER form ID below (replace REPLACE_WAIVER_ID). -->
-<script>
-  (function(){
-    var form=document.getElementById('wvform');
-    if(!form)return;
-    var FORMSPREE='https://formspree.io/f/mvkpaaad';
-    var TO='jhtriathlon@sbcglobal.net';
-    var dateEl=document.getElementById('wvdate');
-    try{dateEl.value=new Date().toISOString().slice(0,10);}catch(e){}
-    var LABELS=[
-      'Coach retained to assist with my fitness',
-      'In good health; condition verified by a licensed medical doctor',
-      'WAIVE / RELEASE / DISCHARGE, AGREE NOT TO SUE, INDEMNIFY / DEFEND / HOLD HARMLESS (full liability release)',
-      'Solely responsible for debits; pay collection fees if 60+ days overdue',
-      'Abide by Illinois law; litigate any disputes within Illinois',
-      'Affirm 18 years or older; have read and understand this document',
-      'Give 30 days notice to cancel coaching services',
-      'Workouts are proprietary to client and coach',
-      'Report progress at least weekly via Training Peaks or email'
-    ];
-    var inits=[].slice.call(form.querySelectorAll('[data-init]'));
-    var name=document.getElementById('wvname'),sig=document.getElementById('wvsig'),msg=document.getElementById('wvmsg');
-    function build(){
-      var L=['JHC COACHING — ATHLETE WAIVER & RELEASE','',
-        'Printed Name: '+name.value.trim(),
-        'Signature: '+sig.value.trim(),
-        'Date: '+dateEl.value,'',
-        'Initialed and agreed to each statement:'];
-      inits.forEach(function(el,i){L.push((i+1)+'. ['+el.value.trim().toUpperCase()+']  '+LABELS[i]);});
-      L.push('','By submitting this form, I confirm the initials above are mine and I agree to the full JHC Athlete Waiver & Release as presented on the onboarding page.');
-      return L.join('\n');
-    }
-    function payload(body){
-      var o={'Printed name':name.value.trim(),'Signature':sig.value.trim(),'Date':dateEl.value,
-        '_subject':'JHC Athlete Waiver & Release — '+name.value.trim()};
-      inits.forEach(function(el,i){o['Clause '+(i+1)+' initials']=el.value.trim().toUpperCase();});
-      o['Full waiver record']=body;
-      return o;
-    }
-    function showDone(sent,body){
-      var done=document.getElementById('wvdone');
-      document.getElementById('wvcopy').value=body;
-      if(!sent){
-        document.getElementById('wvdonehd').textContent='Almost there — email it to Jen';
-        document.getElementById('wvdonemsg').innerHTML='We could not submit automatically. Please copy the text below and email it to <a class="k" href="mailto:'+TO+'" style="font-weight:700">'+TO+'</a>.';
-      }
-      form.hidden=true;done.hidden=false;done.classList.add('in');done.scrollIntoView({behavior:'smooth'});
-    }
-    form.addEventListener('submit',function(e){
-      e.preventDefault();
-      var bad=false;
-      inits.forEach(function(el){var v=!el.value.trim();el.classList.toggle('err',v);if(v)bad=true;});
-      [name,sig].forEach(function(el){var v=!el.value.trim();el.classList.toggle('err',v);if(v)bad=true;});
-      var dv=!dateEl.value;dateEl.classList.toggle('err',dv);if(dv)bad=true;
-      if(bad){msg.hidden=false;msg.textContent='Please initial every statement and complete your name, signature, and date.';return;}
-      msg.hidden=true;
-      var body=build();
-      var btn=document.getElementById('wvsubmit');btn.disabled=true;btn.textContent='Submitting…';
-      fetch(FORMSPREE,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload(body))})
-        .then(function(r){showDone(r.ok,body);})
-        .catch(function(){showDone(false,body);});
-    });
-    document.getElementById('wvcopybtn').addEventListener('click',function(){
-      var ta=document.getElementById('wvcopy');ta.select();ta.setSelectionRange(0,99999);
-      try{document.execCommand('copy');this.textContent='Copied ✓';}catch(e){}
-    });
-  })();
-</script>
+
+<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+<script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-262461688586372']", "https://form.jotform.com")</script>
 </body>
 </html>
