@@ -36,6 +36,43 @@
   .field.err{border-color:var(--rose-deep);background:var(--rose-tint)}
   .wv-msg{color:var(--rose-deep);font-weight:600;font-size:14px;margin:16px 0 0;text-align:center}
   @media(max-width:640px){.wv-sign{grid-template-columns:1fr}.wv-init input{width:56px}.wv-c{padding:14px;gap:12px}}
+
+  /* ---- payment credentials + partner discounts (athlete portal) ---- */
+  .paygrid{display:flex;flex-wrap:wrap;gap:10px}
+  .paycred{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px 8px 7px 14px;box-shadow:var(--shadow)}
+  .paycred .pdot{width:8px;height:8px;border-radius:2px;background:var(--rose);flex:none}
+  .plabel{font-family:"Archivo";font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .pval{font-weight:700;font-size:14px;color:var(--plum);overflow-wrap:anywhere}
+  .copy{font-family:"Archivo";font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--rose-deep);background:var(--rose-tint);border:0;border-radius:99px;padding:6px 11px;cursor:pointer;flex:none;transition:transform .18s var(--ease),background .18s var(--ease),color .18s var(--ease)}
+  .copy:hover{background:var(--rose);color:var(--plum)}
+  .copy:active{transform:scale(.95)}
+  .copy.done{background:var(--plum);color:#fff}
+
+  .discintro{display:grid;grid-template-columns:250px 1fr;gap:34px;align-items:center;margin-bottom:34px}
+  .discpic{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow)}
+  .discpic img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 45%}
+  .discpic figcaption{padding:12px 16px;font-size:13px;line-height:1.5;color:var(--muted)}
+  .disccopy p{margin:0 0 14px;font-size:15px;line-height:1.7;color:var(--muted);max-width:62ch}
+  .disccopy p:last-child{margin-bottom:0}
+  .disc{display:flex;flex-direction:column;align-items:flex-start;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:var(--shadow)}
+  .disc-logo{height:38px;display:flex;align-items:center}
+  .disc-logo img{max-height:30px;max-width:145px;width:auto;object-fit:contain}
+  .disc-amt{margin:0;font-family:"Archivo";font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.95;font-size:clamp(30px,3.3vw,40px);color:var(--plum)}
+  .disc-amt.soft{font-size:clamp(19px,1.9vw,23px);color:var(--muted);letter-spacing:-.01em}
+  .disc-what{margin:0;font-size:14px;line-height:1.65;color:var(--muted);flex:1}
+  .disc-pin{display:inline-flex;align-items:center;gap:10px;background:var(--mist);border:1px solid var(--line);border-radius:8px;padding:7px 8px 7px 14px}
+  .disc-pin .pval{font-family:"Archivo";font-weight:800;letter-spacing:.06em;font-size:15px}
+  .disc-go{font-family:"Archivo";font-weight:800;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--rose-deep);border-bottom:2px solid var(--rose-tint);padding-bottom:3px;transition:color .18s var(--ease),border-color .18s var(--ease)}
+  .disc-go:hover{color:var(--plum);border-color:var(--rose)}
+  @media(max-width:700px){.discintro{grid-template-columns:1fr;gap:22px}.discpic{max-width:320px}}
+  @media(max-width:560px){
+    .disc{padding:20px}
+    /* stack each handle onto its own line so it never breaks mid-word */
+    .paygrid{flex-direction:column;align-items:stretch}
+    .paycred{flex-wrap:wrap;row-gap:6px;padding:10px 10px 10px 14px}
+    .paycred .plabel{flex:1}
+    .paycred .pval{flex:0 0 100%;order:5;font-size:15px}
+  }
 </style>
 </head>
 <body>
@@ -101,7 +138,61 @@
       </div>
       <div class="card reveal" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><span class="tagpill" style="margin:0">Step 2</span><div style="flex:1;min-width:220px"><h3 style="margin:0;font-size:18px">Complete your intake questionnaire</h3><p class="muted" style="margin:2px 0 0;font-size:14px">Tell Jen about your history, your goals, and your schedule. About 12 minutes.</p></div><a class="btn ghost" href="https://form.jotform.com/262463962341358" target="_blank" rel="noopener" style="margin:0">Start Intake ↗</a></div>
       <div class="card reveal" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><span class="tagpill" style="margin:0">Step 3</span><div style="flex:1;min-width:220px"><h3 style="margin:0;font-size:18px">Set up Training Peaks</h3><p class="muted" style="margin:2px 0 0;font-size:14px">Connect your account so your plan and data sync to every device.</p></div><a class="btn ghost" href="https://home.trainingpeaks.com/attachtocoach?sharedKey=UHRCR2PPMIWYI" target="_blank" rel="noopener" style="margin:0">Connect ↗</a></div>
-      <div class="card reveal" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><span class="tagpill" style="margin:0">Step 4</span><div style="flex:1;min-width:220px"><h3 style="margin:0;font-size:18px">Set up payment to Jen</h3><p class="muted" style="margin:2px 0 8px;font-size:14px">Send your coaching payment using whichever of these works best for you.</p><div class="chips" style="gap:8px"><span class="cred" style="padding:7px 13px;font-size:13px"><span class="dot"></span>Venmo &nbsp;<b style="font-weight:700;color:var(--muted)">@—— to be added ——</b></span><span class="cred" style="padding:7px 13px;font-size:13px"><span class="dot"></span>Zelle &nbsp;<b style="font-weight:700;color:var(--muted)">—— to be added ——</b></span></div></div></div>
+      <div class="card reveal" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><span class="tagpill" style="margin:0">Step 4</span><div style="flex:1;min-width:220px"><h3 style="margin:0;font-size:18px">Set up payment to Jen</h3><p class="muted" style="margin:2px 0 8px;font-size:14px">Send your coaching payment using whichever of these works best for you.</p><div class="paygrid"><span class="paycred"><span class="pdot"></span><span class="plabel">Venmo</span><span class="pval">Jennifer-Harrison-234</span><button class="copy" type="button" data-copy="Jennifer-Harrison-234">Copy</button></span><span class="paycred"><span class="pdot"></span><span class="plabel">Zelle</span><span class="pval">jhtriathlon@sbcglobal.net</span><button class="copy" type="button" data-copy="jhtriathlon@sbcglobal.net">Copy</button></span></div></div></div>
+    </div>
+
+    <!-- partner discounts -->
+    <h2 class="reveal" style="margin:64px 0 26px">Your partner discounts</h2>
+
+    <div class="discintro reveal">
+      <figure class="discpic">
+        <img src="/img/jen-partners-qr.jpg" alt="Jen Harrison in a Rudy Project helmet and ROKA sunglasses beside her Quintana Roo bike" loading="lazy">
+        <figcaption>All three on one ride: Rudy Project helmet, ROKA eyewear, Quintana Roo bike.</figcaption>
+      </figure>
+      <div class="disccopy">
+        <p>Every brand here is one Jen trains and races on herself, and Team JHC athletes get athlete pricing on all of them.</p>
+        <p>Set up the ones you want before your first block of training, so your gear is sorted while the plan is still ramping up.</p>
+        <p>Two of them need a quick email to Jen rather than a code on this page. These links are for the team, so please keep them inside it.</p>
+      </div>
+    </div>
+
+    <div class="grid g3">
+      <article class="disc reveal">
+        <span class="disc-logo"><img src="/img/partners/roka.png" alt="ROKA"></span>
+        <p class="disc-amt">30% off</p>
+        <p class="disc-what">Swim items only. Eyewear is not included. Fill out the short form once and the discount applies automatically.</p>
+        <span class="disc-pin"><span class="plabel">Team PIN</span><span class="pval">145437589</span><button class="copy" type="button" data-copy="145437589">Copy</button></span>
+        <a class="disc-go" href="https://ctrk.klclick.com/l/01KC4FJ3Z67C6NMZCFSMC7JGYR_1" target="_blank" rel="noopener">Fill out the ROKA form ↗</a>
+      </article>
+      <article class="disc reveal">
+        <span class="disc-logo"><img src="/img/partners/rudy-logo.png" alt="Rudy Project"></span>
+        <p class="disc-amt">35% off</p>
+        <p class="disc-what">Helmets and eyewear, through the Rudy Project VIP page.</p>
+        <a class="disc-go" href="https://www.rudyprojectna.com/vip" target="_blank" rel="noopener">Open the Rudy VIP page ↗</a>
+      </article>
+      <article class="disc reveal">
+        <span class="disc-logo"><img src="/img/partners/fuelin.png" alt="Fuelin"></span>
+        <p class="disc-amt soft">Athlete rate</p>
+        <p class="disc-what">Personalized performance nutrition. Sign up through Jen&rsquo;s link so your athlete rate is applied.</p>
+        <a class="disc-go" href="https://fuelin.com/referrals?grsf=jennifer-i4omi0" target="_blank" rel="noopener">Open Jen&rsquo;s Fuelin link ↗</a>
+      </article>
+      <article class="disc reveal">
+        <span class="disc-logo"><img src="/img/partners/qr.png" alt="Quintana Roo" style="max-height:40px"></span>
+        <p class="disc-amt soft">Ask Jen</p>
+        <p class="disc-what">Quintana Roo athlete pricing cannot be posted publicly under Jen&rsquo;s partner agreement. Email her and she will send you the details.</p>
+        <a class="disc-go" href="mailto:jhtriathlon@sbcglobal.net?subject=Quintana%20Roo%20athlete%20pricing">Email Jen about QR</a>
+      </article>
+      <article class="disc reveal">
+        <span class="disc-logo"><img src="/img/partners/raw-dark.svg" alt="RAW Nutrition" style="max-height:21px"></span>
+        <p class="disc-amt soft">Ask Jen</p>
+        <p class="disc-what">Endurance fueling and supplements. Email Jen for the current athlete code.</p>
+        <a class="disc-go" href="mailto:jhtriathlon@sbcglobal.net?subject=RAW%20Nutrition%20athlete%20code">Email Jen about RAW</a>
+      </article>
+      <article class="disc reveal">
+        <span class="disc-logo"><img src="/img/partners/cupcke.png" alt="cupcke" style="max-height:24px"></span>
+        <p class="disc-amt soft">Opens late fall</p>
+        <p class="disc-what">The official Team JHC kit is ordered once a year in the late fall. Jen will post the order link here as soon as the store opens.</p>
+      </article>
     </div>
 
   </div>
@@ -162,6 +253,34 @@
     btn.addEventListener('click',tryUnlock);
     pw.addEventListener('keydown',function(e){if(e.key==='Enter')tryUnlock();});
   })();
+</script>
+
+<script>
+  // Copy buttons for payment handles and the ROKA team PIN.
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.copy'); if(!b) return;
+    var val = b.getAttribute('data-copy'), original = b.dataset.label || b.textContent;
+    b.dataset.label = original;
+    function done(ok){
+      b.textContent = ok ? 'Copied' : 'Copy failed';
+      b.classList.toggle('done', ok);
+      setTimeout(function(){ b.textContent = original; b.classList.remove('done'); }, 1600);
+    }
+    function legacyCopy(){
+      var ta=document.createElement('textarea');
+      ta.value=val; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0,val.length);
+      var ok=false; try{ ok=document.execCommand('copy'); }catch(err){}
+      document.body.removeChild(ta); return ok;
+    }
+    // The async API rejects when the document is not focused, so fall through
+    // to the legacy path rather than reporting failure straight away.
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(val).then(function(){done(true);}, function(){done(legacyCopy());});
+    } else {
+      done(legacyCopy());
+    }
+  });
 </script>
 
 </body>
