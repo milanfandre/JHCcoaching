@@ -42,10 +42,12 @@
   })();
 })();
 
-// ======================= VIDEO PASSWORD GATE =======================
-// Video thumbnails are public; playing one asks for the JHC password
-// (same as athlete onboarding). Correct password opens the unlisted
-// YouTube video and stays unlocked for the rest of the browser session.
+// ======================= VIDEO PASSWORD GATE (fallback) =======================
+// The videos page now gates its whole library up front and builds the
+// thumbnails only after the password checks out, so these links normally
+// never exist at load time and this block no-ops. It stays as a fallback for
+// any page that renders a YouTube .vthumb directly in its markup: clicking
+// one asks for the same JHC password and unlocks for the browser session.
 (function () {
   // Password is stored as a SHA-256 hash so it never appears in source.
   var PW_HASH = 'b42ae38374973a3d583f05d8b75dae7c4ef04aa646670601862b821c319d7452';
