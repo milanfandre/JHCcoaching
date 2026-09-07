@@ -303,10 +303,25 @@
 
 /* page header band */
 .pagehead{background:var(--plum);color:#fff;padding:clamp(72px,11vw,132px) 0 clamp(48px,7vw,82px);position:relative;overflow:hidden}
-.pagehead:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 120% at 85% 0,rgba(237,115,168,.22),transparent 60%);pointer-events:none}
+/* brand pink hue rides above the photo so every pagehead still reads as JHC */
+.pagehead:before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(60% 120% at 85% 0,rgba(237,115,168,.22),transparent 60%);pointer-events:none}
+/* photo backdrop: desktop crops vertically (object-position Y drives it),
+   mobile crops horizontally (X drives it), so one value tunes both. */
+.pagehead .bg img{object-position:50% 50%}
+.pagehead h1,.pagehead p,.pagehead .crumb{text-shadow:0 2px 12px rgba(18,13,20,.8),0 1px 3px rgba(18,13,20,.6)}
+/* Mobile-first scrim. Up to desktop the copy runs the full column width, so the
+   scrim has to be vertical and bottom-weighted rather than raking. */
+.pagehead .bg::before{opacity:.28}
+.pagehead .bg::after{background:linear-gradient(178deg,rgba(28,22,32,.42) 0%,rgba(28,22,32,.62) 45%,rgba(28,22,32,.88) 100%),radial-gradient(90% 55% at 82% 4%,rgba(237,115,168,.20),transparent 64%)}
+/* Only once the headline block sits in the left portion does a raking scrim
+   work, letting the right third of the photograph come through. */
+@media(min-width:1024px){
+  .pagehead .bg::before{opacity:.30}
+  .pagehead .bg::after{background:linear-gradient(100deg,rgba(28,22,32,.92) 0%,rgba(28,22,32,.82) 46%,rgba(28,22,32,.50) 74%,rgba(237,115,168,.20) 100%)}
+}
 .pagehead .crumb{font-family:"Archivo";font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
 .pagehead h1{color:#fff;font-size:clamp(40px,6.2vw,80px)}
-.pagehead p{color:#C9BEC9;font-size:clamp(17px,1.6vw,20px);max-width:62ch;margin:18px 0 0}
+.pagehead p{color:#D9CFDB;font-size:clamp(17px,1.6vw,20px);max-width:62ch;margin:18px 0 0}
 .pagehead .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
 
 /* prose */
