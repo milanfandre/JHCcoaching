@@ -116,12 +116,16 @@
     </div>
     <form class="form reveal" action="https://formspree.io/f/xwleoykn" method="POST" style="max-width:720px;margin:0 auto">
       <input type="hidden" name="_subject" value="New athlete testimonial (website)">
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true" autocomplete="off">
       <div class="row2">
         <div><label class="flabel" for="tname">Your name</label><input class="field" type="text" id="tname" name="Name" autocomplete="name" maxlength="120" required></div>
         <div><label class="flabel" for="trace">Distance or goal race</label><input class="field" type="text" id="trace" name="Distance or goal race" placeholder="IRONMAN Wisconsin" maxlength="150"></div>
       </div>
       <div><label class="flabel" for="ttext">Your testimonial</label><textarea class="area" id="ttext" name="Testimonial" maxlength="3000" placeholder="What has training with Jen been like for you?" required></textarea></div>
+      <label class="fcheck" for="tconsent">
+        <input type="checkbox" id="tconsent" name="Consent to publish" value="Yes — approved for the website" required>
+        <span>Yes, JHC Coaching can publish this testimonial and my name on the website.</span>
+      </label>
       <div style="text-align:center;margin-top:6px"><button class="btn primary" type="submit">Send Your Testimonial →</button></div>
     </form>
   </div>
