@@ -203,6 +203,9 @@
   /* ---------- about ---------- */
   .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,56px);align-items:center}
   @media(max-width:820px){.split{grid-template-columns:1fr}}
+  /* long-copy variant: give the prose the wider column, image the narrower */
+  .split.prose-wide{grid-template-columns:1.18fr .82fr}
+  @media(max-width:820px){.split.prose-wide{grid-template-columns:1fr}}
   .split img{width:100%;border-radius:16px;box-shadow:var(--shadow);aspect-ratio:4/5;object-fit:cover}
   .split .body p{color:#413947;font-size:17px}
 
