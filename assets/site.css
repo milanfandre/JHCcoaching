@@ -268,7 +268,8 @@
   /* build credit — sits between the copyright and the social icons */
   .legal .credit{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;transition:color .18s var(--ease)}
   .legal .credit b{font-weight:700;color:var(--plum)}
-  .legal .credit img{height:17px;width:auto;display:block;opacity:.8;transition:opacity .18s var(--ease)}
+  .legal .credit img{height:18px;width:auto;display:block;opacity:.9;transition:opacity .18s var(--ease)}
+  .legal .credit-brand{display:inline-flex;align-items:center;gap:7px}
   .legal .credit:hover{color:var(--rose-deep)}
   .legal .credit:hover b{color:var(--rose-deep)}
   .legal .credit:hover img{opacity:1}
